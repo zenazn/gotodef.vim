@@ -1,1 +1,1 @@
-nmap <C-]> :call gotodef#Jump()<CR>
+nmap <silent> <C-]> :call gotodef#Jump()<CR>
