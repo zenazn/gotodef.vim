@@ -26,7 +26,7 @@ function! gotodef#Jump()
 endfunction
 
 function! s:fzf_tag(identifier)
-  let identifier = s:strip_leading_bangs(a:identifier)
+  let l:identifier = trim(a:identifier, '.,!')
   let source_lines = s:source_lines(identifier)
 
   if len(source_lines) == 0
@@ -53,14 +53,6 @@ function! s:fzf_tag(identifier)
     " something
 
     call fzf#run(l:run_spec)
-  endif
-endfunction
-
-function! s:strip_leading_bangs(identifier)
-  if (a:identifier[0] !=# '!')
-    return a:identifier
-  else
-    return s:strip_leading_bangs(a:identifier[1:])
   endif
 endfunction
 
