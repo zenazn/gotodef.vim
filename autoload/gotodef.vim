@@ -7,7 +7,7 @@ function! s:pushTag()
     " Insert item into the stack at the current index
     call insert(l:stack['items'], l:item, l:stack['curidx']-1)
     " Truncate elements higher than the newly inserted element
-    let l:stack['items'] = l:stack['items'][:l:stack['curidx']]
+    let l:stack['items'] = l:stack['items'][:l:stack['curidx']-1]
     let l:stack['curidx'] += 1
     call settagstack(l:winid, l:stack, 'r')
   endif
